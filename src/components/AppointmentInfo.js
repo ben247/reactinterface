@@ -1,6 +1,6 @@
 import { BiTrash } from "react-icons/bi";
 
-const AppoinmentInfo = ({ appointment, onDeleteAppointment }) => {
+const AppointmentInfo = ({ appointment, onDeleteAppointment }) => {
   return (
     <li className="px-3 py-3 flex items-start">
       <button
@@ -27,4 +27,4 @@ const AppoinmentInfo = ({ appointment, onDeleteAppointment }) => {
   );
 };
 
-export default AppoinmentInfo;
+export default AppointmentInfo;

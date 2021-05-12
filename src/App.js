@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { BiCalendar } from "react-icons/bi";
 import Search from "./components/Search";
 import AddAppointment from "./components/AddAppointment";
-import AppointmentInfo from "./components/AppoinmentInfo";
+import AppointmentInfo from "./components/AppointmentInfo";
 
 function App() {
   let [appointmentList, setAppointmentList] = useState([]);
@@ -43,8 +43,23 @@ function App() {
         <BiCalendar className="inline-block text-red-400 align-top" />
         Your Appointments
       </h1>
-      <AddAppointment />
-      <Search query={query} onQueryChange={(myQuery) => setQuery(myQuery)} />
+      <AddAppointment
+        onSendAppointment={(myAppointment) =>
+          setAppointmentList([...appointmentList, myAppointment])
+        }
+        lastId={appointmentList.reduce(
+          (max, item) => (Number(item.id) > max ? Number(item.id) : max),
+          0
+        )}
+      />
+      <Search
+        query={query}
+        onQueryChange={(myQuery) => setQuery(myQuery)}
+        orderBy={orderBy}
+        onOrderByChange={(mySort) => setOrderBy(mySort)}
+        sortBy={sortBy}
+        onSortByChange={(mySort) => setSortBy(mySort)}
+      />
 
       <ul className="divide-y divide-gray-200">
         {filteredAppointments.map((appointment) => (
