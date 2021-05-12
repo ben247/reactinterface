@@ -37,11 +37,11 @@ const DropDown = ({
           Owner Name {sortBy === "ownerName" && <BiCheck />}
         </div>
         <div
-          onClick={() => onSortByChange("apDate")}
+          onClick={() => onSortByChange("aptDate")}
           className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
           role="menuitem"
         >
-          Date {sortBy === "apDate" && <BiCheck />}
+          Date {sortBy === "aptDate" && <BiCheck />}
         </div>
         <div
           onClick={() => onOrderByChange("asc")}
